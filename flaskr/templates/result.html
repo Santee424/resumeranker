@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<header id="header">
+	    <div class="intro" style="background: url(static/img/intro-bg.jpg) center center no-repeat;">
+    	    <div class="overlay-resume">
+    	        <div class="container" style="min-height: 650px;">
+    	            <div class="row">
+    	                <div class="col-md-7" id="rank">
+    	                    <h2>Rank Your Resume</h2>
+                                <div style="padding-top: 40px;">
+                                    <h3>Select from these:</h3>
+                                    <form action = "/results" method = "POST" enctype =" multipart/form-data" >
+                                        <select name="des" style="margin-right: 30px; font-size: 20px">
+                                            {% for r in results: %}
+                                                <option value = '{{r.name}}'>{{r.name}}</option>
+                                            {% endfor %}
+                                            <option value="a">python</option>
+                                            <option value="a">java</option>
+                                            <option value="a">c++++++</option>
+                                        </select>
+                                        <button class="btn btn-custom btn-lg page-scroll type="submit">Rank</button>
+                                    </form>
+                                </div>
+                        </div>
+        	            <div class="col-md-4" id="rank">
+        			        <h2 style="text-align: center;">Search Resume</h2>
+                            <form action = "/resultsearch" method = "POST" style="padding-top:50px">
+                                <h3>Enter a string to search:</h3>
+                                <input type ="text" name = "Name" style="line-height:30px;font-color:black;border:1px solid #cccccc;    line-height: 30px;
+    								margin-top: 20px margin-top:20px" />
+                                <input type="submit" value="submit" class="sub-btn"> 
+                            </form>
+                        </div>
+    	            </div>
+                </div>
+	        </div>
+        </div>
+    </header>
+{% endblock%}
